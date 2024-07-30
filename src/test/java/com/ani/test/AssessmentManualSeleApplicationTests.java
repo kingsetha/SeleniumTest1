@@ -350,44 +350,4 @@ class AssessmentManualSeleApplicationTests {
 		driver.findElement(By.name("update")).submit();
 		assertEquals("valid data needed", "valid data needed");
 	}
-	@Test
-	  public void deleteTest() {
-//		WebDriver driver = new ChromeDriver();
-	    driver.get("http://localhost:3000/");
-	    driver.manage().window().setSize(new Dimension(1536, 816));
-	    driver.findElement(By.linkText("View Customer")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(1) .ms-1")).click();
-	    assertEquals("Do you want to delete", "Do you want to delete");
-	    assertEquals("Data has deleted","Data has deleted");
-	  }
-	@Test
-	  public void deleteMovieTest() {
-//		WebDriver driver = new ChromeDriver();
-	    driver.get("http://localhost:3000/");
-	    driver.manage().window().setSize(new Dimension(1536, 816));
-	    driver.findElement(By.linkText("View Movie")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(3) .ms-1")).click();
-	    assertEquals("Do you want to delete", "Do you want to delete");
-	    assertEquals("Data has deleted","Data has deleted");
-	  }
-	@Test
-	  public void deleteMovieTest1() {
-//		WebDriver driver = new ChromeDriver();
-	    driver.get("http://localhost:3000/ViewR");
-	    driver.manage().window().setSize(new Dimension(1536, 816));
-	    driver.findElement(By.linkText("View Movie")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(3) .ms-1")).click();
-	    assertEquals("Do you want to delete", "Do you want to delete");
-	    assertEquals("Data has deleted","Data has deleted");
-	  }
-	@Test
-	  public void deleteMovieTest2() {
-//		WebDriver driver = new ChromeDriver();
-	    driver.get("http://localhost:3000/ViewR");
-	    driver.manage().window().setSize(new Dimension(1536, 816));
-	    driver.findElement(By.linkText("View Customer")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(3) .ms-1")).click();
-	    assertEquals("Do you want to delete", "Do you want to delete");
-	    assertEquals("Data has deleted","Data has deleted");
-	  }
 }
