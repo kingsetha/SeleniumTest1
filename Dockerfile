@@ -1,22 +1,13 @@
 #
-# Build stage
+# Build
 #
 FROM maven:3.8.3-openjdk-17 AS build
-WORKDIR /home/app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package
-
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
 #
-# Test stage
+# Package stage
 #
-FROM selenium/standalone-chrome:latest
-
-# Copy the built JAR file from the build stage
+FROM openjdk:17-alpine
 COPY --from=build /home/app/target/AssessmentManualSele-0.0.1-SNAPSHOT.jar /usr/local/lib/AssessmentManualSele-0.0.1-SNAPSHOT.jar
-
-# Set the working directory
-WORKDIR /usr/local/lib
-
-# Run the tests
-CMD ["java", "-jar", "AssessmentManualSele-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/AssessmentManualSele-0.0.1-SNAPSHOT.jar"]
